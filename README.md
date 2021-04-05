@@ -2,8 +2,7 @@
 
 ## Description
 
-This is a recreation of Bash (Bourne Again Shell) that contains limited functionality. Tasked to us by Holberton School, this emulat\
-ion of the shell will provide us with a better understanding of the inner workings of how a functional shell program operates.
+This is a recreation of Bash (Bourne Again Shell) that contains limited functionality. Tasked to us by Holberton School, this emulation of the shell will provide us with a better understanding of the inner workings of how a functional shell program operates.
 
 ![image joke printf](https://user-images.githubusercontent.com/58611397/111072067-fc769700-84a6-11eb-93a2-42cb55eb731d.jpg)
 
@@ -77,15 +76,15 @@ $
 ````
 ### Resources
 
-[Everything you need to know to start coding your own shell](https://intranet.hbtn.io/concepts/64)
-[Writing Your Own Shell](https://www.cs.cornell.edu/courses/cs414/2004su/homework/shell/shell.html)
-[Let's Build a Linux Shell Part I](https://hackernoon.com/lets-build-a-linux-shell-part-i-bz3n3vg1)
-[How do I use execve in C](https://jameshfisher.com/2017/02/05/how-do-i-use-execve-in-c/)
+* [Everything you need to know to start coding your own shell](https://intranet.hbtn.io/concepts/64)
+* [Writing Your Own Shell](https://www.cs.cornell.edu/courses/cs414/2004su/homework/shell/shell.html)
+* [Let's Build a Linux Shell Part I](https://hackernoon.com/lets-build-a-linux-shell-part-i-bz3n3vg1)
+* [How do I use execve in C](https://jameshfisher.com/2017/02/05/how-do-i-use-execve-in-c/)
 
 ### Link to Blog Post
 
 [Under the Hood: Unix Remix]
-* insert here *
+* insert here
 
 ### Contributors
 
