@@ -4,7 +4,7 @@
 
 This is a recreation of Bash (Bourne Again Shell) that contains limited functionality. Tasked to us by Holberton School, this emulation of the shell will provide us with a better understanding of the inner workings of how a functional shell program operates.
 
-![image joke printf](https://user-images.githubusercontent.com/58611397/111072067-fc769700-84a6-11eb-93a2-42cb55eb731d.jpg)
+![](http://clipartmag.com/image/seashell-drawing-38.jpg)
 
 ### List of allowed functions and system calls
 
