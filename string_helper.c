@@ -7,11 +7,14 @@
  * Return: length of string
  */
 
-unsigned int _strlen(char *s)
+int _strlen(char *s)
 {
 	int i;
 
-	for (i = 0; s[i] != '\0'; i++)
+	i = 0;
+
+	while (s[i] != '\0')
+		i++;
 
 	return (i);
 }
@@ -23,13 +26,16 @@ unsigned int _strlen(char *s)
  * Return: length of constant string
  */
 
-unsigned int const_strlen(const char *strconst)
+int const_strlen(char *strconst)
 {
-	int i = 0;
+        int i;
 
-	for (; strconst[i] != '\0'; i++)
+        i = 0;
 
-	return (i);
+        while (strconst[i] != '\0')
+                i++;
+
+        return (i);
 }
 
 /**

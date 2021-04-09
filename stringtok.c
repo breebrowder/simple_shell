@@ -61,7 +61,7 @@ char **stringtokarray(char *str)
 		separatedtokencmds[i] = malloc(_strlen(piece) + 1);
 		if (separatedtokencmds[i] == NULL)
 		{
-			free_all_double_ptr(separatedtokencmds);
+/*			free_all_double_ptr(separatedtokencmds); */
 			return (NULL);
 		}
 		_strncpy(separatedtokencmds[i], piece, _strlen(piece) + 1);
