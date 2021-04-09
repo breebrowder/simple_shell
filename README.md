@@ -1,11 +1,23 @@
-<<<<<<< HEAD
 # Simple Shell Group Project- Cohort 14
 
 ## Description
 
-This is a recreation of Bash (Bourne Again Shell) that contains limited functionality. Tasked to us by Holberton School, this emulation of the shell will provide us with a better understanding of the inner workings of how a functional shell program operates.
+This is a recreation of Bash (Bourne Again Shell) that contains limited functionality. Tasked to us by Holberton School, this emulation of the shell will provide us with a better understanding of the inner workings of how a functional shell program operates. We will be using what we have previously learned in the trimester as well as learning a few new concepts as we work on this project.
 
 ![](http://clipartmag.com/image/seashell-drawing-38.jpg)
+
+### Requirements
+
+* Allowed editors: vi, vim, emacs
+* All your files will be compiled on Ubuntu 14.04 LTS
+* Your C programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
+* All your files should end with a new line
+* A README.md file, at the root of the folder of the project is mandatory
+* Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
+* Your shell should not have any memory leaks
+* No more than 5 functions per file
+* All your header files should be include guarded
+* Use system calls only when you need to
 
 ### List of allowed functions and system calls
 
@@ -95,13 +107,3 @@ $
 ```
 Project Due Date: April 15, 2021
 ```
-=======
-#### Simple shell Project
-
-In this group project we will be using shell. We are creating a project using sell commands. This will be both interactive, with takes in account line arguments and commands. As well as non interavtive, fiel is just executable with not line agruments other the to run what is in the file. We will be using what we have prevuosly learned in the trimester as well as learning a few new things as we work on this project
-
-- All files must be done in Betty Style
-- Will be using the following to complie gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
-- Can not use more than 5 functions per file
-- The shell shouldnt leak any memory
->>>>>>> 22c995b759e68b70c8ce1ea46b9d8e8288b99009
