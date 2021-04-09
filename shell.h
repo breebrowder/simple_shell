@@ -10,10 +10,8 @@
 #include <sys/stat.h>
 #include <signal.h>
 
-/* Print Prompt Function */
-void print_prompt(void)
 
-/* Helper Functions: string handling */
+int execute_command(void);
 int _strlen(char *s);
 int const_strlen(char *strconst);
 char *_strncpy(char *dest, char *src, int n);

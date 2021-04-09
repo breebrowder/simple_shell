@@ -1,12 +1,23 @@
 #include "shell.h"
 
 /**
- * print_prompt- write the prompt
+ * main- basic shell with limited functionality
  *
- * Return: void
+ * Return: 0
  */
 
-void print_prompt(void)
+int main (void)
 {
-	write(STDOUT_FILENO, "$\n", 2);
+	char *buffer = malloc(1024); /* 1024 = 1 kb */
+	size_t len = 1024;
+
+	buffer = (char*)malloc(bufsize * sizeof(char));
+
+	while (1) /* repeat forever */
+	{
+		print_prompt(); /* calling on function to display prompt */
+		getline(&buffer, &len, stdin);
+			printf ("%s", buffer);
+	}
+	return (0);
 }
