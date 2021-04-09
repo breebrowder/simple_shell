@@ -7,7 +7,7 @@
  * Return: length of string
  */
 
-int _strlen(char *s)
+unsigned int _strlen(char *s)
 {
 	int i;
 
@@ -23,7 +23,7 @@ int _strlen(char *s)
  * Return: length of constant string
  */
 
-int const_strlen(char *strconst)
+unsigned int const_strlen(const char *strconst)
 {
 	int i = 0;
 
