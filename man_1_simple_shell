@@ -1,0 +1,59 @@
+.\" HSH(1) - Man Page
+.\" Contact Bree Browder or Nikki Edmonds to correct errors or typos. Contact emails are listed in the README.md file of the repository.
+.TH hsh 1 "09 April 2021" "1.0" "hsh man page"
+
+.SH NAME
+hsh \- a simple emulation of GNU Bourne-Again SHell with limited functionality
+
+.SH SYNOPSIS
+#include "shell.h"
+
+.SH DESCRIPTION
+Hsh is a Unix command language interpreter that executes commands read from the standard input stream or from a file. Hsh is intended to be a conformant implementation of the Shell.
+
+.SH
+BUILT-IN COMMANDS
+
+.TR
+env
+- used to either print a list of environment variables or run another utility in an altered environment without having to modify the currently existing environment.
+
+.TR
+exit
+- used to exit out of the shell, typically with a status of N. If N is not given, the exit status code is that of the last executed command. When used in shell scripts, the value supplied as an argument to the exit command is returned to the shell as an exit code. Each shell command returns an exit code when it terminates.
+
+.TR
+setenv
+- used to define the value of environment variables. If setenv is given no arguments, it displays all environment variables and their values. setenv is similar to the set command, that also sets an environment variable's value. However, unlike set, setenv also "exports" this environment variable to any subshells. In this way, it is the equivalent of the bash command export. 
+
+.TR
+unsetenv
+- used to delete the variable name from the environment. If name does not exist in the environment, then the function succeeds, and the environment is unchanged.
+
+.TR
+cd
+- used to change the current working directory in Linux and other Unix-like operating systems (a.k.a. our hsh shell). It is one of the most basic and frequently used commands when working on the Linux terminal.
+
+.TR
+alias
+- used to supplement or override shell commands with new ones. Aliases make it easy for users to customize their experience in the terminal. It ultimately creates shortcuts for regularly used commands that are long.
+
+.TR
+help
+- used to display information about built-in commands. It accepts a text string as the command line argument and searches the supplied string in the shell's documents. If the supplied string matches with an internal command, the help command picks the available information about that command from the shell's document and displays that information on the terminal.
+
+.TR
+history
+- used to view the previously executed command. It keeps a list of all the other commands that have been run from that terminal session, then allows you to replay or reuse those commands instead of retyping them. 
+
+.SH OPTIONS
+Hsh does not take any options.
+
+.SH SEE ALSO
+sh(1), ksh(1), csh(1), access(2), chdir(2), execve(2), _exit(2), exit(3), fflush(3), fork(2), free(3), isatty(3), getcwd(3), malloc(3), open(2), read(2), sh(1), signal(2), stat(2), wait(2), write(2)
+
+.SH BUGS
+No known bugs.
+
+.SH AUTHOR
+Bree Browder, and Nikki Edmonds.
