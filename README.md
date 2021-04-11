@@ -8,16 +8,16 @@ This is a recreation of Bash (Bourne Again Shell) that contains limited function
 
 ### Requirements
 
-* Allowed editors: vi, vim, emacs
-* All your files will be compiled on Ubuntu 14.04 LTS
-* Your C programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
-* All your files should end with a new line
-* A README.md file, at the root of the folder of the project is mandatory
-* Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
-* Your shell should not have any memory leaks
-* No more than 5 functions per file
-* All your header files should be include guarded
-* Use system calls only when you need to
+1. Allowed editors: vi, vim, emacs
+2. All your files will be compiled on Ubuntu 14.04 LTS
+3. Your C programs and functions will be compiled with gcc 4.8.4 using the flags -Wall -Werror -Wextra and -pedantic
+4. All your files should end with a new line
+5. A README.md file, at the root of the folder of the project is mandatory
+6. Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl
+7. Your shell should not have any memory leaks
+8. No more than 5 functions per file
+9. All your header files should be include guarded
+10. Use system calls only when you need to
 
 ### List of allowed functions and system calls
 
@@ -89,15 +89,15 @@ $
 ````
 
 ### Mandatory Tasks
-0. README, man, AUTHORS
+#### 0. README, man, AUTHORS
 * Write a README.
 * Write a man for your shell.
 * You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository.
 
-1. Betty would be proud
+#### 1. Betty would be proud
 * Write a beautiful code that passes the Betty checks.
 
-2. Simple Shell 0.1
+#### 2. Simple Shell 0.1
 Write a UNIX command line interpreter.
 
 Usage: simple_shell
@@ -120,21 +120,21 @@ You dont have to:
 * be able to move the cursor.
 * handle commands with arguments.
 
-3. Simple Shell 0.2
+#### 3. Simple Shell 0.2
 * Handle command lines with arguments.
 
-4. Simple Shell 0.3
+#### 4. Simple Shell 0.3
 * Handle the PATH.
 
-5. Simple Shell 0.4
+#### 5. Simple Shell 0.4
 * Implement the exit built-in, that exits the shell.
 * Usage: exit.
 * You dont have to handle any argument to the built-in exit.
 
-6. Simple Shell 1.0
+#### 6. Simple Shell 1.0
 * Implement the env built-in, that prints the current environment.
 
-7. What happens when you type `ls -l *.c` in the shell
+#### 7. What happens when you type `ls -l *.c` in the shell
 * Write a blog post describing step by step what happens when you type ls -l *.c and hit Enter in a shell. Try to explain every step you know of, goin  g in as much details as you can, give examples and draw diagrams when needed. You should merge your previous knowledge of the shell with the specifi  cs of how it works under the hoods (including syscalls).
 
 ### Resources
