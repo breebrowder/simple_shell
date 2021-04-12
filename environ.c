@@ -44,15 +44,14 @@ void absolutepath(char **cmds, char *buffer, char **envar, char **argv, int numb
 	alldir = env_pathlist(cmds[0], envar);
 
 	while (alldir[i]) /* looping through directories in PATH */
-	{
 		if (alldir[i], &getfileStat_0) == 0) /* if this is true, then execute */
-		execve(alldir[i], cmds, NULL);
-		i++;
-}
-		hsh_errormsg(argv, cmds[0], number);
+		{
+			execve(alldir[i], cmds, NULL);
+			i++;
+		}
 
+		hsh_errormsg(argv, cmds[0], number);
 		free(buffer);
 		free_doubleptr(cmds);
 		free_doubleptr(alldir);
 		exit(EXIT_SUCCESS);
-}
