@@ -38,3 +38,35 @@ void eof_constant(char *buffer)
 	free(buffer);
 	exit(0);
 }
+
+/**
+ * exitbuilt_in- frees buffer and commands created from
+ * getline, then exits child process
+ * @buffer: buffer made from getline
+ * @cmds: double pointer array that stores all commands
+ *
+ * Return: void
+ */
+void exitbuilt_in(char *buffer, char **cmds)
+{
+	free(buffer);
+	free_doubleptr(cmds);
+	exit(EXIT_SUCCESS); /* macro */
+}
+
+/**
+ * envbuilt_in- frees buffer and commands created from
+ * getline, prints the env, then exits child process
+ * @buffer: buffer made from getline
+ * @cmds: double pointer array that stores all commands
+ * @env: environment variables
+ *
+ * Return: void
+ */
+void envbuilt_in(char *buffer, char **cmds, char **environ)
+{
+	free(buffer);
+	free_doubleptr(cmds);
+	printallenv(environ);
+	exit(EXIT_SUCCESS); /* macro */
+}

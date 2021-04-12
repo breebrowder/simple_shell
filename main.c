@@ -28,16 +28,11 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 	char *buffer, **cmds;
 	size_t len; ssize_t stringoftext;
 	char *prompt = "$ ", *exitcmd = "exit", *envcmd = "env";
-	pid_t pid; /* struct stat fileStat; */
-	int status, error;
+	pid_t pid; struct stat getfileStatus;
+	int status, number;
 	(void)argc;
-/*  int execreturn;
-        char *args[] = {
-                "/bin/ls",
-                "-l",
-                NULL }; */
 
-	buffer = NULL, len = 0, error = 0;
+	buffer = NULL, len = 0, number = 0;
 
 	if (isatty(STDIN_FILENO)) /* testing if fd is associated with hsh */
 		write(STDOUT_FILENO, prompt, 2); /* write takes 3 args: fd, pointer to buffer where data is stored, # of bytes to write from buffer */
@@ -49,7 +44,7 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 		stringoftext = getline(&buffer, &len, stdin)
 			if (stringoftext == EOF)
 				eof_constant(buffer);
-		error++;
+		number++;
 
 		cmds = stringtokarray(buffer);
 		pid = fork(); /* create a new process */
@@ -59,36 +54,44 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 			perror("Error in fork");
 			return (-1);
 		}
-		else if (pid == 0) /* child */
-			execreturn = execve(args[0], args, NULL);
-
-		if (execreturn = -1)
-			{
-				perror("Error in execve");
-				return (-1);
-			}
-	}
+		if (pid == 0)
+		{
+			/* check if commands is NULL or all empty spaces */
+			if (cmds == NULL)
+				free(buffer);
+			/* search to see if command is EXIT to exit the shell */
+			else if (_strcmp(exitcmd, cmds[0]))
+				exitbuilt_in(buffer, cmds);
+			/* search to see if command is ENV to print environment variables */
+			else if (_strcmp(envcmd, cmds[0]))
+				envbuilt_in(buffer, cmds, environ);
+			/* check if the command is a full path to an executable file */
+			else if (stat(cmds[0], &getfileStatus) == 0)
+				execve(cmds[0], cmds, NULL);
+			/* check all directories in PATH for executable commands */
+			else
+				absolutepath(cmds, buffer, envar, argv, number);
+		}
 	else
 	{
 		wait(&status); /* waits for child to finish + stores address of status: kill unneccessary bc child wont make zombies */
 		if (cmds == NULL)
+		{
 			free(buffer);
-		free_doubleptr(cmds);
-
+			free_doubleptr(cmds);
+		}
 		else if (_strcmp(exitcmd, cmds[0])
 			 exitall(buffer, cmds);
-
 			 else
 				 free(buffer);
 			 free_doubleptr(cmds);
-			 }
-		len = 0; buffer = NULL;
 
-		if (isatty(STDIN_FILENO))
-			write(STDOUT_FILENO, prompt, 2);
-	}
-	if (stringoftext = -1)
-		return (EXIT_FAILURE); /* macro: this is 1 */
-	else
-		return (EXIT_SUCCESS); /* macro: this is 0 */
+			 len = 0; buffer = NULL;
+			 if (isatty(STDIN_FILENO))
+				 write(STDOUT_FILENO, prompt, 2);
+
+		if (stringoftext = -1)
+			return (EXIT_FAILURE); /* macro: this is 1 */
+		else
+			return (EXIT_SUCCESS); /* macro: this is 0 */
 }
