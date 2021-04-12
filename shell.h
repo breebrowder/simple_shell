@@ -17,15 +17,17 @@ void _puts(char *str);
 
 /* String Helper Functions */
 int _strlen(char *s);
-int const_strlen(char *strconst);
 char *_strncpy(char *dest, char *src, int n);
-char *const_strncpy(char *dest, const char *src, int n);
 int _strcmp(char *str1, char *str2);
 
 /* Actual Shell Emulation Functions */
-int main (void);
-int execute_command(void);
+int main(int argc, char **argv, char **env);
 unsigned int cmd_length(char *str);
 char **stringtokarray(char *str);
+
+/* Freeing Memory Functions */
+void free_doubleptr(char **ptr);
+void eof_constant(char *buffer);
+
 
 #endif /* SHELL_H */

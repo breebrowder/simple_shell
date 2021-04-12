@@ -25,13 +25,13 @@ void free_doubleptr(char **ptr)
 }
 
 /**
- * _fileend- handle ctrl + c interrupt signal, writes new line and frees buffer from getline
+ * eof_constant- handle ctrl + c interrupt signal, writes new line and frees buffer from getline
  * @buffer: pointer to buffer that contains new line
  *
  * Return: void
  */
 
-void _fileend(char *buffer)
+void eof_constant(char *buffer)
 {
 	if (isatty(STDIN_FILENO))
 		write(STDOUT_FILENO, "\n", 1);

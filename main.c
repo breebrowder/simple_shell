@@ -48,7 +48,7 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 	{
 		stringoftext = getline(&buffer, &len, stdin)
 			if (stringoftext == EOF)
-				_fileend(buffer);
+				eof_constant(buffer);
 		error++;
 
 		cmds = stringtokarray(buffer);
