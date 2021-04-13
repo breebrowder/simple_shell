@@ -28,7 +28,7 @@ void printallenv(char **envar)
  * in the PATH, checks if first command is executable, then executes
  * @cmds: double pointer to all commands
  * @buffer: buffer created from getline
- * @envar: double pointer to env variables
+ * @env: double pointer to env variables
  * @argv: argument vector
  * @number: number of times commands have been entered in prompt
  *

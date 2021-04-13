@@ -23,23 +23,27 @@ void handler(int signum)
  * Return: 0 on success, 1 if failure
  */
 
-int main(int argc, char **argv, char **env) /* checkout execve man page for prototype */
+int main(int argc, char **argv, char **env) /* checkout execve man page */
 {
-	char *buffer; char **cmds;
-	size_t len; ssize_t stringoftext;
+	char *buffer, **cmds;
+	size_t len;
+	ssize_t stringoftext;
 	char *prompt = "$ ", *exitcmd = "exit", *envcmd = "env";
-	pid_t pid; struct stat getfileStatus;
+	pid_t pid;
+	struct stat getfileStatus;
 	int status, number;
 	(void)argc;
 
 	buffer = NULL, len = 0, number = 0;
 
 	if (isatty(STDIN_FILENO)) /* testing if fd is associated with hsh */
-		write(STDOUT_FILENO, prompt, 2); /* write takes 3 args: fd, pointer to buffer where data is stored, # of bytes to write from buffer */
+		write(STDOUT_FILENO, prompt, 2); /* write takes 3 args */
+/* fd, pointer to buf where data is stored, # of bytes to write from buffer */
 
-	signal(SIGINT, handler); /* signal kill: ctrl + c sends SIGINT signal that interrupts process and ends never ending while loop */
+	signal(SIGINT, handler); /* signal kill: ctrl + c */
+/* sends SIGINT signal that stops process & ends never ending while loop */
 
-	while ((stringoftext = getline(&buffer, &len, stdin))); /* loop forever */
+	while ((stringoftext = getline(&buffer, &len, stdin))) /* loop 4ever */
 	{
 		if (stringoftext == EOF)
 			eof_constant(buffer);
@@ -61,19 +65,20 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 			/* search to see if command is EXIT to exit the shell */
 			else if (_strcmp(exitcmd, cmds[0]))
 				envfree(buffer, cmds, environ);
-			/* search to see if command is ENV to print environment variables */
+			/* search to see if command is ENV to print variables */
 			else if (_strcmp(envcmd, cmds[0]))
 				envfree(buffer, cmds, environ);
-			/* check if the command is a full path to an executable file */
+			/* check if command is full path to a executable file */
 			else if (stat(cmds[0], &getfileStatus) == 0)
 				execve(cmds[0], cmds, NULL);
-			/* check all directories in PATH for executable commands */
+			/* check all directories in PATH for executable cmds */
 			else
 				absPath(cmds, buffer, env, argv, number);
 		}
 		else
 		{
-			wait(&status); /* waits for child to finish + stores address of status: kill unneccessary bc child wont make zombies */
+			wait(&status); /* waits for child to finish */
+/* stores address of status: kill unneccessary bc child wont make zombies */
 			if (cmds == NULL)
 			{
 				free(buffer);
@@ -85,14 +90,14 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 				free(buffer);
 			free_doubleptr(cmds);
 
-			len = 0; buffer = NULL;
+			len = 0, buffer = NULL;
 
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, prompt, 2);
 		}
-		if (stringoftext == -1)
-			return (EXIT_FAILURE); /* macro: this is 1 */
-		else
-			return (EXIT_SUCCESS); /* macro: this is 0 */
 	}
+	if (stringoftext == -1)
+		return (EXIT_FAILURE); /* macro: this is 1 */
+	else
+		return (EXIT_SUCCESS); /* macro: this is 0 */
 }
