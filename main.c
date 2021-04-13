@@ -41,7 +41,7 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 
 	while (1) /* loop forever */
 	{
-		stringoftext = getline(&buffer, &len, stdin)
+		stringoftext = getline(&buffer, &len, stdin);
 			if (stringoftext == EOF)
 				eof_constant(buffer);
 		number++;
@@ -51,7 +51,7 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 
 		if (pid == -1)
 		{
-			perror("Error in fork");
+			perror("Error:");
 			return (-1);
 		}
 		if (pid == 0)
@@ -61,16 +61,16 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 				free(buffer);
 			/* search to see if command is EXIT to exit the shell */
 			else if (_strcmp(exitcmd, cmds[0]))
-				exitbuilt_in(buffer, cmds);
+				envfree(buffer, cmds, environ);
 			/* search to see if command is ENV to print environment variables */
 			else if (_strcmp(envcmd, cmds[0]))
-				envbuilt_in(buffer, cmds, environ);
+				envfree(buffer, cmds, environ);
 			/* check if the command is a full path to an executable file */
 			else if (stat(cmds[0], &getfileStatus) == 0)
 				execve(cmds[0], cmds, NULL);
 			/* check all directories in PATH for executable commands */
 			else
-				absolutepath(cmds, buffer, envar, argv, number);
+				absPath(cmds, buffer, envar, argv, number);
 		}
 	else
 	{
@@ -80,8 +80,8 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 			free(buffer);
 			free_doubleptr(cmds);
 		}
-		else if (_strcmp(exitcmd, cmds[0])
-			 exitall(buffer, cmds);
+		else if (_strcmp(exitcmd, cmds[0]))
+			 exitfree(buffer, cmds);
 			 else
 				 free(buffer);
 			 free_doubleptr(cmds);
@@ -90,7 +90,7 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 			 if (isatty(STDIN_FILENO))
 				 write(STDOUT_FILENO, prompt, 2);
 
-		if (stringoftext = -1)
+		if (stringoftext == -1)
 			return (EXIT_FAILURE); /* macro: this is 1 */
 		else
 			return (EXIT_SUCCESS); /* macro: this is 0 */

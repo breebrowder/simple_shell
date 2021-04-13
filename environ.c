@@ -24,7 +24,7 @@ void printallenv(char **envar)
 }
 
 /**
- * absolutepath- creates a double pointer array of all the directories contained
+ * absPath- creates a double pointer array of all the directories contained
  * in the PATH, checks if first command is executable, then executes
  * @cmds: double pointer to all commands
  * @buffer: buffer created from getline
@@ -35,7 +35,7 @@ void printallenv(char **envar)
  * Return: void
  */
 
-void absolutepath(char **cmds, char *buffer, char **envar, char **argv, int number)
+void absPath(char **cmds, char *buffer, char **envar, char **argv, int number)
 {
 	struct stat getfileStat_0;
 	int i = 0;
@@ -45,14 +45,14 @@ void absolutepath(char **cmds, char *buffer, char **envar, char **argv, int numb
 
 	while (alldir[i]) /* looping through directories in PATH */
 	{
-		if (alldir[i], &getfileStat_0) == 0) /* if this is true, then execute */
-		execve(alldir[i], cmds, NULL);
+		if (stat(alldir[i], &getfileStat_0) == 0) /* if true, execute */
+			execve(alldir[i], cmds, NULL);
 		i++;
-}
-		hsh_errormsg(argv, cmds[0], number);
+	}
+	hsh_errormsg(argv, cmd1[0], number);
 
-		free(buffer);
-		free_doubleptr(cmds);
-		free_doubleptr(alldir);
-		exit(EXIT_SUCCESS);
+	free(buffer);
+	free_doubleptr(cmds);
+	free_doubleptr(alldir);
+	exit(EXIT_SUCCESS);
 }
