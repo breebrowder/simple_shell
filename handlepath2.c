@@ -1,15 +1,16 @@
-#include "holberton.h"
+#include "shell.h"
+
 /**
- * find_semis - finds the total number of directories in your path
+ * total_dir - finds total number of directories in the path
  * @path: the path string
  *
  * Return: number of directories in the path
  */
-unsigned int find_semis(char *path)
+unsigned int total_dir(char *path)
 {
-        unsigned int semis, i, flag;
+        unsigned int dir, i, flag;
 
-        i = 0, semis = 0, flag = 0;
+        i = 0, dir = 0, flag = 0;
         while (path[i])
         {
                 if (path[i] != ':')
@@ -17,12 +18,12 @@ unsigned int find_semis(char *path)
 
                 if ((flag && path[i + 1] == ':') || (flag && path[i + 1] == '\0'))
                 {
-                        ++semis;
+                        dir++;
                         flag = 0;
                 }
                 ++i;
         }
-        return (semis);
+        return (dir);
 }
 /**
  * _getenv - gets the environment variable value
@@ -38,12 +39,12 @@ char *_getenv(const char *name, char **environ)
         unsigned int i, length;
 
         /* find the length of the argument, then malloc space for it */
-        length = _strlen_const(name);
+        length = _conststrlen(name);
         name_copy = malloc((sizeof(char) * length) + 1);
         if (name_copy == NULL)
                 return (NULL);
         /* copy the contents of the name argument to the new variable, name_copy */
-        _strncpyconst(name_copy, name, length);
+        _conststrncpy(name_copy, name, length);
         /*
          * find the enviroment variable that matches the name_copy variable
          * assign the value to the value variable and return the address

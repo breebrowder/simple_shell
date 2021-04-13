@@ -10,6 +10,9 @@
 #include <sys/stat.h>
 #include <signal.h>
 
+/* GLOBAL VAR: double pointer that holds environment variables */
+extern char **environ;
+
 /* FILE: _PUTCHAR.C */
 int _putchar(char c);
 
@@ -30,6 +33,14 @@ int main(int argc, char **argv, char **env);
 /* FILE: STRINGTOK.C */
 unsigned int cmd_length(char *str);
 char **stringtokarray(char *str);
+
+/* FILE: HANDLEPATH.C */
+char **env_pathlist(char *cmd1, char **envar);
+void hsh_errormsg(char **argv, char *cmd1, int number);
+
+/* FILE: IGNORE.C */
+unsigned int total_dir(char *path);
+char *_getenv(const char *name, char **environ);
 
 /* FILE: FREE.C */
 void free_doubleptr(char **ptr);

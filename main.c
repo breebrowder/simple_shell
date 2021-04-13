@@ -25,7 +25,7 @@ void handler(int signum)
 
 int main(int argc, char **argv, char **env) /* checkout execve man page for prototype */
 {
-	char *buffer, **cmds;
+	char *buffer; char **cmds;
 	size_t len; ssize_t stringoftext;
 	char *prompt = "$ ", *exitcmd = "exit", *envcmd = "env";
 	pid_t pid; struct stat getfileStatus;
@@ -39,12 +39,11 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 
 	signal(SIGINT, handler); /* signal kill: ctrl + c sends SIGINT signal that interrupts process and ends never ending while loop */
 
-	while (1) /* loop forever */
+	while ((stringoftext = getline(&buffer, &len, stdin))); /* loop forever */
 	{
-		stringoftext = getline(&buffer, &len, stdin);
-			if (stringoftext == EOF)
-				eof_constant(buffer);
-		number++;
+		if (stringoftext == EOF)
+			eof_constant(buffer);
+		++number;
 
 		cmds = stringtokarray(buffer);
 		pid = fork(); /* create a new process */
@@ -70,28 +69,30 @@ int main(int argc, char **argv, char **env) /* checkout execve man page for prot
 				execve(cmds[0], cmds, NULL);
 			/* check all directories in PATH for executable commands */
 			else
-				absPath(cmds, buffer, envar, argv, number);
+				absPath(cmds, buffer, env, argv, number);
 		}
-	else
-	{
-		wait(&status); /* waits for child to finish + stores address of status: kill unneccessary bc child wont make zombies */
-		if (cmds == NULL)
+		else
 		{
-			free(buffer);
+			wait(&status); /* waits for child to finish + stores address of status: kill unneccessary bc child wont make zombies */
+			if (cmds == NULL)
+			{
+				free(buffer);
+				free_doubleptr(cmds);
+			}
+			else if (_strcmp(exitcmd, cmds[0]))
+				exitfree(buffer, cmds);
+			else
+				free(buffer);
 			free_doubleptr(cmds);
+
+			len = 0; buffer = NULL;
+
+			if (isatty(STDIN_FILENO))
+				write(STDOUT_FILENO, prompt, 2);
 		}
-		else if (_strcmp(exitcmd, cmds[0]))
-			 exitfree(buffer, cmds);
-			 else
-				 free(buffer);
-			 free_doubleptr(cmds);
-
-			 len = 0; buffer = NULL;
-			 if (isatty(STDIN_FILENO))
-				 write(STDOUT_FILENO, prompt, 2);
-
 		if (stringoftext == -1)
 			return (EXIT_FAILURE); /* macro: this is 1 */
 		else
 			return (EXIT_SUCCESS); /* macro: this is 0 */
+	}
 }

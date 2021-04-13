@@ -35,13 +35,13 @@ void printallenv(char **envar)
  * Return: void
  */
 
-void absPath(char **cmds, char *buffer, char **envar, char **argv, int number)
+void absPath(char **cmds, char *buffer, char **env, char **argv, int number)
 {
 	struct stat getfileStat_0;
 	int i = 0;
 	char **alldir;
 
-	alldir = env_pathlist(cmds[0], envar);
+	alldir = env_pathlist(cmds[0], env);
 
 	while (alldir[i]) /* looping through directories in PATH */
 	{
@@ -49,7 +49,7 @@ void absPath(char **cmds, char *buffer, char **envar, char **argv, int number)
 			execve(alldir[i], cmds, NULL);
 		i++;
 	}
-	hsh_errormsg(argv, cmd1[0], number);
+	hsh_errormsg(argv, cmds[0], number);
 
 	free(buffer);
 	free_doubleptr(cmds);

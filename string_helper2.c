@@ -63,7 +63,7 @@ char *_strncpyappend(char *dest, char *src, char *cmd, int d_len, int c_len)
 		i++;
 	}
 
-	for (; k < c_len && c_len[k] != '\0'; k++, i++)
+	for (; k < c_len && cmd[k] != '\0'; k++, i++)
 	{
 		dest[i] = cmd[k];
 		dest[i] = '\0';
