@@ -22,7 +22,7 @@ unsigned int cmd_length(char *str)
 
 		if ((flag && str[i + 1] == ' ') || (flag && str[i + 1] == '\0'))
 		{
-			cmd_number++;
+			++cmd_number;
 			flag = 0;
 		}
 	}
@@ -61,7 +61,7 @@ char **stringtokarray(char *str)
 		separatedtokencmds[i] = malloc(_strlen(piece) + 1);
 		if (separatedtokencmds[i] == NULL)
 		{
-/*			free_all_double_ptr(separatedtokencmds); */
+			free_doubleptr(separatedtokencmds);
 			return (NULL);
 		}
 		_strncpy(separatedtokencmds[i], piece, _strlen(piece) + 1);

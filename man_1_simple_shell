@@ -24,7 +24,7 @@ exit
 
 .TR
 setenv
-- used to define the value of environment variables. If setenv is given no arguments, it displays all environment variables and their values. setenv is similar to the set command, that also sets an environment variable's value. However, unlike set, setenv also "exports" this environment variable to any subshells. In this way, it is the equivalent of the bash command export. 
+- used to define the value of environment variables. If setenv is given no arguments, it displays all environment variables and their values. setenv is similar to the set command, that also sets an environment variable's value. However, unlike set, setenv also "exports" this environment variable to any subshells. In this way, it is the equivalent of the bash command export.
 
 .TR
 unsetenv
@@ -44,7 +44,7 @@ help
 
 .TR
 history
-- used to view the previously executed command. It keeps a list of all the other commands that have been run from that terminal session, then allows you to replay or reuse those commands instead of retyping them. 
+- used to view the previously executed command. It keeps a list of all the other commands that have been run from that terminal session, then allows you to replay or reuse those commands instead of retyping them.
 
 .SH OPTIONS
 Hsh does not take any options.

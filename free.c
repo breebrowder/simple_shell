@@ -16,7 +16,7 @@ void free_doubleptr(char **ptr)
 	while (ptr[ptr_tok])
 	{
 		free(ptr[ptr_tok]);
-		ptr_tok++;
+		++ptr_tok;
 	}
 	if (ptr[ptr_tok] == NULL)
 		free(ptr[ptr_tok]);
@@ -25,7 +25,39 @@ void free_doubleptr(char **ptr)
 }
 
 /**
- * eof_constant- handle ctrl + c interrupt signal, writes new line and frees buffer from getline
+ * exitfree- frees buffer and commands created from
+ * getline, then exits child process
+ * @buffer: buffer made from getline
+ * @cmds: double pointer array that stores all commands
+ *
+ * Return: void
+ */
+void exitfree(char *buffer, char **cmds)
+{
+	free(buffer);
+	free_doubleptr(cmds);
+	exit(EXIT_SUCCESS); /* macro */
+}
+
+/**
+ * envfree- frees buffer and commands created from
+ * getline, prints the env, then exits child process
+ * @buffer: buffer made from getline
+ * @cmds: double pointer array that stores all commands
+ * @environ: environment variables
+ *
+ * Return: void
+ */
+void envfree(char *buffer, char **cmds, char **environ)
+{
+	free(buffer);
+	free_doubleptr(cmds);
+	printallenv(environ);
+	exit(EXIT_SUCCESS); /* macro */
+}
+
+/**
+ * eof_constant- handle ctrl+c stop signal, writes \n & frees buf from getline
  * @buffer: pointer to buffer that contains new line
  *
  * Return: void
@@ -37,36 +69,4 @@ void eof_constant(char *buffer)
 		write(STDOUT_FILENO, "\n", 1);
 	free(buffer);
 	exit(0);
-}
-
-/**
- * exitbuilt_in- frees buffer and commands created from
- * getline, then exits child process
- * @buffer: buffer made from getline
- * @cmds: double pointer array that stores all commands
- *
- * Return: void
- */
-void exitbuilt_in(char *buffer, char **cmds)
-{
-	free(buffer);
-	free_doubleptr(cmds);
-	exit(EXIT_SUCCESS); /* macro */
-}
-
-/**
- * envbuilt_in- frees buffer and commands created from
- * getline, prints the env, then exits child process
- * @buffer: buffer made from getline
- * @cmds: double pointer array that stores all commands
- * @env: environment variables
- *
- * Return: void
- */
-void envbuilt_in(char *buffer, char **cmds, char **environ)
-{
-	free(buffer);
-	free_doubleptr(cmds);
-	printallenv(environ);
-	exit(EXIT_SUCCESS); /* macro */
 }
