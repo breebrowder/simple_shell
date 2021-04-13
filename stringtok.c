@@ -22,7 +22,7 @@ unsigned int cmd_length(char *str)
 
 		if ((flag && str[i + 1] == ' ') || (flag && str[i + 1] == '\0'))
 		{
-			cmd_number++;
+			++cmd_number;
 			flag = 0;
 		}
 	}

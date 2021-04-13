@@ -14,7 +14,7 @@ unsigned int _conststrlen(const char *str)
 	i = 0;
 	while (str[i])
 
-		i++;
+		++i;
 
 	return (i);
 }
@@ -60,7 +60,7 @@ char *_strncpyappend(char *dest, char *src, char *cmd, int d_len, int c_len)
 	{
 		dest[i] = src[i];
 		dest[i] = '/'; /* appends "/" & "command" to the src */
-		i++;
+		++i;
 	}
 
 	for (; k < c_len && cmd[k] != '\0'; k++, i++)
