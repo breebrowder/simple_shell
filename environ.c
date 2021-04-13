@@ -19,7 +19,7 @@ void printallenv(char **envar)
 		/* write it to the stdout */
 		write(STDOUT_FILENO, envar[i], len);
 		write(STDOUT_FILENO, "\n", 1);
-		i++;
+		++i;
 	}
 }
 
@@ -47,7 +47,7 @@ void absPath(char **cmds, char *buffer, char **env, char **argv, int number)
 	{
 		if (stat(alldir[i], &getfileStat_0) == 0) /* if true, execute */
 			execve(alldir[i], cmds, NULL);
-		i++;
+		++i;
 	}
 	hsh_errormsg(argv, cmds[0], number);
 

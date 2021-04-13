@@ -16,7 +16,7 @@ void free_doubleptr(char **ptr)
 	while (ptr[ptr_tok])
 	{
 		free(ptr[ptr_tok]);
-		ptr_tok++;
+		++ptr_tok;
 	}
 	if (ptr[ptr_tok] == NULL)
 		free(ptr[ptr_tok]);
