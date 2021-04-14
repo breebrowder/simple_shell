@@ -25,6 +25,7 @@ unsigned int total_dir(char *path)
 	}
 	return (dir);
 }
+
 /**
  * _getenv - gets the environment variable value
  * @name: name of the environment vaariable you are looking for
@@ -46,9 +47,9 @@ char *_getenv(const char *name, char **environ)
 /* copy the contents of the name argument to the new variable, name_copy */
 	_conststrncpy(name_copy, name, length);
 /*
-* find the enviroment variable that matches the name_copy variable
-* assign the value to the value variable and return the address
-*/
+ * find the enviroment variable that matches the name_copy variable
+ * assign the value to the value variable and return the address
+ */
 	i = 0;
 	env_value = strtok(environ[i], "=");
 	while (environ[i])
