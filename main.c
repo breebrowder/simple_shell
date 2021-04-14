@@ -54,8 +54,7 @@ int main(int argc, char **argv, char **env) /* checkout execve man page */
 
 		if (pid == -1)
 		{
-			perror("Error:");
-			return (-1);
+			fork_fail();
 		}
 		if (pid == 0)
 		{
@@ -64,7 +63,7 @@ int main(int argc, char **argv, char **env) /* checkout execve man page */
 				free(buffer);
 			/* search to see if command is EXIT to exit the shell */
 			else if (_strcmp(exitcmd, cmds[0]))
-				envfree(buffer, cmds, environ);
+				exitfree(buffer, cmds);
 			/* search to see if command is ENV to print variables */
 			else if (_strcmp(envcmd, cmds[0]))
 				envfree(buffer, cmds, environ);
