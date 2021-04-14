@@ -81,5 +81,5 @@ void eof_constant(char *buffer)
 void cmds_is_null(char *buffer)
 {
 	free(buffer);
-	exit(127);
+	exit(EXIT_SUCCESS);
 }
