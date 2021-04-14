@@ -3,19 +3,19 @@
 /**
  * env_pathlist- creates double ptr that stores each directory as a single ptr
  * @cmd1: first command the prompt takes
- * @envar: environment variables
+ * @environ: environment variables
  *
  * Return: memory address of double pointer
  */
 
-char **env_pathlist(char *cmd1, char **envar)
+char **env_pathlist(char *cmd1, char **environ)
 {
 	char **alldir;
 	char *e_path, *directory;
 	unsigned int len, i;
 	int dir_len, cmd_len;
 
-	e_path = _getenv("PATH", envar);
+	e_path = _getenv("PATH", environ);
 	len = total_dir(e_path);
 	alldir = malloc(sizeof(char *) * (len + 1));
 	if (alldir == NULL)
@@ -38,8 +38,8 @@ char **env_pathlist(char *cmd1, char **envar)
 		++i;
 		directory = strtok(NULL, ": ");
 	}
-		alldir[i] = NULL;
-		return (alldir);
+	alldir[i] = NULL;
+	return (alldir);
 }
 
 /**
