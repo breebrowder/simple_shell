@@ -8,7 +8,7 @@
  */
 void free_doubleptr(char **ptr)
 {
-	int ptr_tok = 0;
+	unsigned int ptr_tok = 0;
 
 	if (ptr == NULL)
 		return; /* condition: if double pointer is empty */
@@ -22,7 +22,6 @@ void free_doubleptr(char **ptr)
 		free(ptr[ptr_tok]);
 
 	free(ptr);
-	exit(EXIT_SUCCESS);
 }
 
 /**
@@ -70,4 +69,17 @@ void eof_constant(char *buffer)
 		write(STDOUT_FILENO, "\n", 1);
 	free(buffer);
 	exit(0);
+}
+
+/**
+ * cmds_is_null - frees the buffer we create when the double ptr command
+ * returned null
+ * @buffer: the buffer we created from getline
+ *
+ * Return: void
+ */
+void cmds_is_null(char *buffer)
+{
+	free(buffer);
+	exit(127);
 }
