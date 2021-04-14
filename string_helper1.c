@@ -53,18 +53,7 @@ char *_strncpy(char *dest, char *src, int n)
 
 	for (i = 0; i < n && src[i] != '\0'; i++)
 		dest[i] = src[i];
-		dest[i] = '\0';
+	dest[i] = '\0';
 
 	return (dest);
-}
-
-/**
- * fork_fail - function that handles fork fail
- *
- * Return: void
- */
-void fork_fail(void)
-{
-	perror("Error:");
-	exit(EXIT_FAILURE);
 }
