@@ -22,6 +22,7 @@ void free_doubleptr(char **ptr)
 		free(ptr[ptr_tok]);
 
 	free(ptr);
+	exit(EXIT_SUCCESS);
 }
 
 /**
