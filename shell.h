@@ -20,6 +20,7 @@ int _putchar(char c);
 int _strlen(char *s);
 int _strcmp(char *str1, char *str2);
 char *_strncpy(char *dest, char *src, int n);
+void fork_fail(void);
 
 /* FILE: STRING_HELPER2.C */
 unsigned int _conststrlen(const char *str);
