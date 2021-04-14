@@ -60,7 +60,7 @@ int main(int argc, char **argv, char **env) /* checkout execve man page */
 		{
 			/* check if commands is NULL or all empty spaces */
 			if (cmds == NULL)
-				free(buffer);
+				cmds_is_null(buffer);
 			/* search to see if command is EXIT to exit the shell */
 			else if (_strcmp(exitcmd, cmds[0]))
 				exitfree(buffer, cmds);
@@ -69,7 +69,9 @@ int main(int argc, char **argv, char **env) /* checkout execve man page */
 				envfree(buffer, cmds, environ);
 			/* check if command is full path to a executable file */
 			else if (stat(cmds[0], &getfileStatus) == 0)
+			{
 				execve(cmds[0], cmds, NULL);
+			}
 			/* check all directories in PATH for executable cmds */
 			else
 				absPath(cmds, buffer, env, argv, number);
