@@ -66,7 +66,7 @@ char **stringtokarray(char *str)
 		}
 		_strncpy(separatedtokencmds[i], piece, _strlen(piece) + 1);
 		piece = strtok(NULL, " ");
-		++i;
+		i++;
 	}
 	separatedtokencmds[i] = NULL;
 	return (separatedtokencmds);
