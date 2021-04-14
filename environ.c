@@ -2,22 +2,22 @@
 
 /**
  * printallenv - prints all of the environment variables to our standard output
- * @envar: double pointer to all env variables
+ * @environ: double pointer to all env variables
  *
  * Return: void
  */
-void printallenv(char **envar)
+void printallenv(char **environ)
 {
 	unsigned int i = 0;
 	unsigned int len;
 
-	while (envar[i])
+	while (environ[i])
 	{
 		/* find the length of each environment variable */
-		len = _strlen(envar[i]);
+		len = _strlen(environ[i]);
 
 		/* write it to the stdout */
-		write(STDOUT_FILENO, envar[i], len);
+		write(STDOUT_FILENO, environ[i], len);
 		write(STDOUT_FILENO, "\n", 1);
 		++i;
 	}
@@ -55,4 +55,15 @@ void absPath(char **cmds, char *buffer, char **env, char **argv, int number)
 	free_doubleptr(cmds);
 	free_doubleptr(alldir);
 	exit(EXIT_SUCCESS);
+}
+
+/**
+ * fork_fail - function that handles a fork fail
+ *
+ * Return: void
+ */
+void fork_fail(void)
+{
+	perror("Error:");
+	exit(EXIT_FAILURE);
 }
