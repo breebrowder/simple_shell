@@ -70,16 +70,3 @@ void eof_constant(char *buffer)
 	free(buffer);
 	exit(0);
 }
-
-/**
- * cmds_is_null - frees the buffer we create when the double ptr command
- * returned null
- * @buffer: the buffer we created from getline
- *
- * Return: void
- */
-void cmds_is_null(char *buffer)
-{
-	free(buffer);
-	exit(EXIT_SUCCESS);
-}

@@ -60,7 +60,7 @@ int main(int argc, char **argv, char **env) /* checkout execve man page */
 		{
 			/* check if commands is NULL or all empty spaces */
 			if (cmds == NULL)
-				cmds_is_null(buffer);
+				free(buffer);
 			/* search to see if command is EXIT to exit the shell */
 			else if (_strcmp(exitcmd, cmds[0]))
 				exitfree(buffer, cmds);

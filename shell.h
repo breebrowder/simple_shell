@@ -48,7 +48,6 @@ void free_doubleptr(char **ptr);
 void exitfree(char *buffer, char **cmds);
 void envfree(char *buffer, char **cmds, char **environ);
 void eof_constant(char *buffer);
-void cmds_is_null(char *buffer);
 
 /* FILE: ENVIRON.C */
 void printallenv(char **envar);
