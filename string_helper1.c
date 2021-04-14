@@ -57,3 +57,14 @@ char *_strncpy(char *dest, char *src, int n)
 
 	return (dest);
 }
+
+/**
+ * fork_fail - function that handles fork fail
+ *
+ * Return: void
+ */
+void fork_fail(void)
+{
+	perror("Error:");
+	exit(EXIT_FAILURE);
+}
