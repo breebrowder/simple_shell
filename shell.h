@@ -55,5 +55,4 @@ void printallenv(char **envar);
 void absPath(char **cmds, char *buffer, char **envar, char **argv, int number);
 
 
-
 #endif /* SHELL_H */

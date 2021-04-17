@@ -36,7 +36,7 @@ int main(int argc, char **argv, char **env) /* checkout execve man page */
 
 	buffer = NULL, len = 0, number = 0;
 
-	if (isatty(STDIN_FILENO)) /* testing if fd is associated with hsh */
+	if (isatty(STDIN_FILENO))  /* testing if fd is associated with hsh */
 		write(STDOUT_FILENO, prompt, 2); /* write takes 3 args */
 /* fd, pointer to buf where data is stored, # of bytes to write from buffer */
 
