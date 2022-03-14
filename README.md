@@ -1,5 +1,9 @@
 # Simple Shell Group Project- Cohort 14
 
+## Project
+
+1. [Simple Shell](https://intranet.hbtn.io/projects/235)
+
 ## Description
 
 This is a recreation of Bash (Bourne Again SHell) that contains limited functionality. Tasked to us by Holberton School, this emulation of the shell will provide us with a better understanding of the inner workings of how a functional shell program operates. We will be using what we have previously learned in the trimester as well as learning a few new concepts as we work on this project.
