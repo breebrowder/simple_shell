@@ -4,7 +4,8 @@
 
 This is a recreation of Bash (Bourne Again SHell) that contains limited functionality. Tasked to us by Holberton School, this emulation of the shell will provide us with a better understanding of the inner workings of how a functional shell program operates. We will be using what we have previously learned in the trimester as well as learning a few new concepts as we work on this project.
 
-![](http://clipartmag.com/image/seashell-drawing-38.jpg)
+![](https://bashlogo.com/img/logo/png/full_colored_dark.png)
+
 
 ### Requirements
 
@@ -150,9 +151,20 @@ You dont have to:
 
 ### Contributors
 
-1. Bree Browder - 2372@holbertonschool.com
-3. Nikki Edmonds - 2495@holbertonschool.com
+1. Bree Browder - [GitHub](https://github.com/breebrowder)
+3. Nikki Edmonds - [GitHub](https://github.com/NikkiE-Holberton)
 
-```
-Project Due Date: April 15, 2021
-```
+## About the Developer  💬
+
+### Bree Browder
+
+Bree is known for her creativity, organization, and self awareness. Advances in technology have played an integral part in her life. As an empathy-driven problem solver, Bree wants to be at the forefront of design for products, and to continuously design with others in mind, especially those who tend to be marginalized or forgotten.
+
+### Follow Me
+
+- 📁 [LinkedIn](https://www.linkedin.com/in/breebrowder/)
+- ✍️ [Medium](https://medium.com/@breebrowder)
+- 🖥️ [Portfolio Website](https://breebrowder.github.io)
+
+### Email Me
+📩: browder.bree@gmail.com
